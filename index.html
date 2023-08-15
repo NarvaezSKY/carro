@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- <base href="https://narvaezsky.github.io/proyectoCarrito/index.html"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Libre Colombia - Envíos Gratis en el día</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="shortcut icon" href="/image/logo-favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+</head>
+<body class="pagina">
+    <header>
+        <div class="header">
+            <div class="contenido-header">
+
+                <a href="index.html"><img src="/image/mercado-libre-logo.png" width="150px" class="logo-app" alt="Logo Mercado Libre" ></a>
+                <input type="search" class="buscador" placeholder="Buscar productos, marcas y más..." >
+                <img src="/image/promoNivel6Header.webp" width="380px" style="position: absolute; right: 0px" alt="">
+
+                <div class="footer-nav">
+                    <a class="opcion-nav">Ingresa tu ubicacion</a>
+                    <a class="opcion-nav">Categorias</a>
+                    <a class="opcion-nav">Ofertas</a>
+                    <a class="opcion-nav">Historial</a>
+                    <a class="opcion-nav">Supermercado</a>
+                    <a class="opcion-nav">Moda</a>
+                    <a class="opcion-nav">Vender</a>
+                    <a class="opcion-nav">Ayuda/PQR</a>
+                </div>
+                <div class="cuenta-carrito">
+                    <a class="opcion-nav">Crea tu cuenta</a>
+                    <a class="opcion-nav">Ingresa</a>
+                    <a class="opcion-nav">Mis compras</a>
+                    <img src="/image/logo-carrito.png" class="logo-carrito"  alt="carrito" id="btcarrito">
+                </div>
+            </div> 
+            
+            <div id="carrito">
+              <h3>Carrito de Compras</h3>
+            </div>
+        </div>
+    </header>
+
+    <main>
+<!-- carrusel y tal -->
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://http2.mlstatic.com/D_NQ_771638-MLA70459152766_072023-OO.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://http2.mlstatic.com/D_NQ_983000-MLA70891152745_082023-OO.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://http2.mlstatic.com/D_NQ_606405-MLA70794785122_082023-OO.webp" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+<center>
+  <div class="mediosdepago">
+    <img src="https://http2.mlstatic.com/storage/homes-korriban/assets/images/payments/credit-card.svg" style="margin-left: 40px;" alt="">
+    <div class="descripcion-medio">
+        Hasta 48 Cuotas <br>
+        <a href="" class="vermas-pago">Ver más</a>
+    </div>
+    <img src="https://http2.mlstatic.com/storage/homes-korriban/assets/images/payments/transfer.svg" style="margin-left: 40px;" alt="">
+    <div class="descripcion-medio">Transferencia bancaria <br>
+        <a href="" class="vermas-pago">Ver más</a></div>
+    <img src="https://http2.mlstatic.com/storage/homes-korriban/assets/images/payments/payment-agreement.svg" style="margin-left: 40px;" alt="">
+    <div class="descripcion-medio">Paga en efectivo <br>
+        <a href="" class="vermas-pago">Ver más</a></div>
+    <img src="https://http2.mlstatic.com/storage/homes-korriban/assets/images/payments/view-more.svg" style="margin-left: 40px;" alt="">
+    <div class="descripcion-medio">Más medios de pago <br>
+        <a href="" class="vermas-pago">Ver más</a></div>
+
+  </div>
+
+
+  <p class="titulo-ofertas">Ofertas <a href="" class="ver-ofertas">Ver todas</a></p>
+  
+
+<!-- cartas del papu -->
+<div class="contenedor-cards">
+<div class="card" style="width: 18rem;">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_699538-MCO69510888045_052023-O.webp" width="200" height="250" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">179900</h5>
+      <span class="descuento">23% OFF</span>
+      <p style="font-size: medium;">36x $5.552</p>
+        <span class="descuento">Envío gratis</span>
+      <p class="card-text">Silla SENA</p>
+      <a class="btn btn-primary" id="comprar">Comprar</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_670935-MLA51988776838_102022-O.webp" width="200" height="250" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">1289900</h5><span class="descuento">23% OFF</span>
+        <p style="font-size: medium;">36x $5.552</p>
+        <span class="descuento">Envío gratis</span>
+      <p class="card-text">PC gay</p>
+      <a class="btn btn-primary" id="comprar">Comprar</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_647801-MCO51933950851_102022-O.webp" width="200" height="250" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">359900</h5><span class="descuento">23% OFF</span>
+        <p style="font-size: medium;">36x $5.552</p>
+        <span class="descuento">Envío gratis</span>
+      <p class="card-text">bici camilo</p>
+      <a class="btn btn-primary" id="comprar">Comprar</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_609214-MCO44055199470_112020-O.webp" width="200" height="250" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">69900</h5><span class="descuento">23% OFF</span>
+        <p style="font-size: medium;">36x $5.552</p>
+        <span class="descuento">Envío gratis</span>
+      <p class="card-text">que cojones es esto</p>
+      <a class="btn btn-primary" id="comprar">Comprar</a>
+    </div>
+  </div>
+</div>
+</center>
+
+
+    </main>
+
+<!-- 
+    <script src="/js/main.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
+
+<!-- Las sillas que deberian dar en el SENA posta me duele el poto en eso de plastico mas duro que el papá de Camilo -->
+<!-- mi cara cuando mi cara cuando https://onlyfans.com/ServicioNacionalDeAprendizajeSENA/Alvaro.avi -->
+<!-- Sin ti yo no me siento bien Na más de mil en cien Viviendo y por dentro muerto Hasta un ciego lo ve -->
+<!-- Lorem ijuesuputamadre maten al foreach y a las arrow functions cabrones -->

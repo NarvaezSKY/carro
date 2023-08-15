@@ -1,0 +1,194 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.pagina{
+    background-color:rgb(228, 228, 228);
+}
+.header{
+    background-color: #ffee59;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+.mediosdepago{
+    background-color: rgb(255, 255, 255);
+    width: 75%;
+    height: 100px;
+    margin-top: 30px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    padding-top: 25px;
+    padding-left: 0px;
+}
+.descripcion-medio{
+    margin-left: -40px;
+    text-align: left;
+}
+
+.vermas-pago{
+    text-decoration: none;
+    font-size: 12px;
+}
+.contenido-header{
+    /* text-align: center; */
+    position: absolute;
+    width: 80%;
+    background-color: rgba(240, 248, 255, 0);
+    height: 90%;
+    border-style: dashed;
+    border-color: rgba(240, 248, 255, 0);
+}
+
+.buscador{
+    width: 650px;
+    border-style: none;
+    height: 40px;
+    border: 0px;
+    box-shadow: 1px 1px 2px 0.5px rgb(145, 145, 145);
+    position: absolute; 
+    left: 200px;
+    font-size: large;
+    place-content: 100px;
+    margin-top: 5px;
+    border-radius: 1px;
+}
+.buscador:focus{
+    border: 0px;
+    border-style: dashed;
+}
+
+
+.footer-nav{
+    display: flex;
+    color: rgb(131, 130, 130);
+    position: absolute;
+    bottom: 5px;
+    margin-inline: 10px;
+    height: 5px;
+    margin-bottom: 10px;
+}
+.opcion-nav{
+    color: rgb(114, 113, 113);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14.5px;
+    
+
+}
+
+.opcion-nav:hover{
+    color: black;
+    transition: 250ms;
+}
+.opcion-nav:left{
+    transition: 250ms;
+    color: rgb(114, 113, 113);
+}
+
+
+
+.contenedor-cards{
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align: left;
+    margin: 0px;
+    width: 70%;
+}
+
+
+
+.descuento{
+font-size: 15px;
+color: #02A846;
+font-weight: 550;
+}
+
+.titulo-ofertas{
+    text-align: left;
+    margin-left: 260px;
+    font-size: 25px;
+    margin-top: 80px;
+    
+}
+.ver-ofertas{
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 7px;
+}
+
+.logo-app{
+    margin-top: 3px;
+}
+
+.cuenta-carrito{
+    position: absolute;
+    background-color: #02a84700;
+    right: 5%;
+    bottom: 0%;
+    color: black;
+}
+.logo-carrito{
+    position: absolute;
+    width: 60px;
+    right: -80px;
+    bottom: -10px;
+
+}
+
+#carrito h3{
+    text-align: left;
+    padding: 15px 15px;
+
+}
+
+
+#carrito{
+    display: none;
+    
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    right: 0%;
+    top: 100%;
+    width: 500px;
+    height: 500%;
+    border-bottom-left-radius: 10px;
+    box-shadow: 1px 1px 2px 0.5px rgb(145, 145, 145);
+    
+}
+#btcarrito:hover #carrito{
+    color: #ffee59;
+    display: none;
+}   
+
+.productoEnCarro{
+    text-align: left;
+    width: 80%;
+    margin: 5px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.valor{
+    font-weight: bold;
+    font-size: larger;
+    margin-right: 10px;
+}
+
+.foticosuwu{
+    width: 80px;
+    /* height: 50px; */
+}
+
+.totalProductos{
+    font-style: normal;
+    font-size: 25px;
+    margin: 10px;
+    font-weight: bold;
+}
