@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let total = 0;
     let carritoProductos = {};
+  
     
 
     botonCompra.forEach((boton, index) => {
@@ -25,15 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
             }
 
-    // console.log(carritoProductos)
-    // console.log(carrito)
-
             total += precioProducto;
+            console.log(total)
             function actualizarCarrito() {
                 carrito.innerHTML = '';
         
                 for (const producto in carritoProductos) {
                     const infoProducto = carritoProductos[producto];
+                    // console.log(infoProducto)
                     const elementoCarrito = document.createElement('div');
                     elementoCarrito.innerHTML = `
                         <p class="valor">${infoProducto.precio}</p>
@@ -44,10 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
                    
                     carrito.appendChild(elementoCarrito);
 
-                    let carritoLocalStorage=JSON.stringify(elementoCarrito)
+                    let carritoLocalStorage=JSON.stringify(carritoProductos)
                     localStorage.setItem("producto",carritoLocalStorage)
                     traerDelTal=localStorage.getItem("producto")
                     traerElTal=JSON.parse(traerDelTal)
+                    console.log(traerElTal)
                 }
         
                 const totalElemento = document.createElement('div');
@@ -55,8 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 carrito.appendChild(totalElemento);
             }
             actualizarCarrito();
+            console.log(carritoProductos)
         });
     });
+
 
 
 
