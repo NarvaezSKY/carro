@@ -150,7 +150,6 @@ font-weight: 550;
 
 #carrito{
     display: none;
-    
     background-color: white;
     z-index: 1;
     position: absolute;
@@ -172,7 +171,7 @@ font-weight: 550;
     width: 80%;
     margin: 5px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .valor{
