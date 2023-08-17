@@ -156,7 +156,7 @@ font-weight: 550;
     right: 0%;
     top: 100%;
     width: 500px;
-    height: 700%;
+    height: 800%;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: 1px 1px 2px 0.5px rgb(145, 145, 145);
@@ -207,21 +207,34 @@ font-weight: 550;
     box-shadow: 0px 10px 100px 2px rgb(206, 255, 177) inset;
 }
 
-.vaciarCarro{
+.tal{
     position: absolute;
-    left: 0%;
-    margin-top: 490px;
+    width: 100%;
+    background-color: #02A846;
+    z-index: 999;
+    height: 100%;
+}
+.INVISIBLE{
+    display: none;
+}
+.vaciarCarro{
+    
+    top: 21%;
+    position: absolute;
+    /* position: fixed; */
+    right: 0%;
+    margin-top: 497px;
     background-color: #ffee59;
     width: 100%;
     border-style: none;
     height: 50px;
     font-size: 20px;
-    box-shadow: 10px 10px 10px 10px rgb(177, 177, 177);
+    box-shadow: 10px 10px 10px 5px rgb(177, 177, 177);
 }
 
 .vaciarCarro:hover{
     transition: 0.8s;
-    margin-top: 480px;
+    margin-top: 496px;
     background-color: #ff3333;
     height: 60px;
     font-weight:500
@@ -245,4 +258,7 @@ font-weight: 550;
 .boton-eliminar:hover{
     transition: 0.8s;
     background-color: #bd2727;
+}
+.nombreProductoxd{
+    font-size: smaller;
 }

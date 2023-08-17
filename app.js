@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let carrito = document.getElementById('carrito');
     let botonCompra = document.querySelectorAll('#comprar');
     let producto = document.querySelectorAll('.card');
-    let contenidotal=document.getElementById('carritoHover')
+    let contenidotal=document.getElementById('tal')
     
     let total = 0;
     let carritoProductos = {};
@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
         carrito.innerHTML = ''
     
         for (const producto in carritoProductos) {
-            const infoProducto = carritoProductos[producto];
+            let infoProducto = carritoProductos[producto];
             const elementoCarrito = document.createElement('div');
     
             elementoCarrito.innerHTML = `
                 <img src="${infoProducto.imagen}" class="foticosuwu">
                 <p class="valor">$${infoProducto.precio}</p>
-                <p>${producto}</p>
+                <p class="nombreProductoxd">${producto}</p>
                 <p>Cantidad: <b>${infoProducto.cantidad}</b></p>
             `;
             elementoCarrito.classList.add("productoEnCarro")
@@ -63,7 +63,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         carrito.appendChild(vaciarCarrito)
-    vaciarCarrito.addEventListener('click',()=>{
+        
+    const vaciarCarritoTotal=document.createElement('button')
+    vaciarCarritoTotal.textContent="Cada click aqui es un preuano muerto"
+    vaciarCarritoTotal.classList.add('vaciarCarro')
+    carrito.appendChild(vaciarCarritoTotal)
+
+    vaciarCarritoTotal.addEventListener('click', ()=>{
+        localStorage.clear()
+        let borrarProductos=document.querySelectorAll('.productoEnCarro')
+        console.log(borrarProductos)
+        borrarProductos.forEach((element)=>{
+            console.log(carritoProductos)
+            vaciarCarrito.style.display="none"
+        })
+        
+        
+
+                
+    })
+        vaciarCarrito.addEventListener('click',()=>{
 
         if (carritoProductos.hasOwnProperty(producto)) {
             carritoProductos[producto].cantidad--; 
@@ -72,8 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 carrito.removeChild(elementoCarrito)
                 vaciarCarrito.style.display="none"
             }
-            subirLocal(carritoProductos);
             actualizarCarrito();
+            subirLocal(carritoProductos);
+            
+            
         }
 
 
@@ -88,26 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
            
 
 
-                const vaciarCarritoTotal=document.createElement('button')
-                vaciarCarritoTotal.textContent="Vaciar el coso"
-                vaciarCarritoTotal.classList.add('vaciarCarro')
-                carrito.appendChild(vaciarCarritoTotal)
-
-                vaciarCarritoTotal.addEventListener('click', ()=>{
-                    localStorage.clear()
-                    sessionStorage.clear()
-                   
-                    carrito.innerHTML=""
-                    
-                })
 
                 const totalElemento = document.createElement('div');
                 totalElemento.classList.add('allProductsXD')
                 totalElemento.innerHTML = `<p >Total: $${total}</p>`;
                 carrito.appendChild(totalElemento);
-            }
+}
             
-            function subirLocal (carritoProductos){
+function subirLocal (carritoProductos){
         
                 localStorage.setItem("producto", JSON.stringify(carritoProductos))
                 localStorage.setItem("total",JSON.stringify(total))
@@ -129,3 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+let n = document.querySelector("#elpapu");
+
+n.textContent = "koala uwu  ";
