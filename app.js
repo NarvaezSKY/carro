@@ -8,17 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let total = 0;
     let carritoProductos = {};
-    carritoProductos=JSON.parse(localStorage.getItem("producto"))||{}
-    total=JSON.parse(localStorage.getItem("total"))
+    carritoProductos = JSON.parse(localStorage.getItem("producto")) || {}
+    total = JSON.parse(localStorage.getItem("total")) || 0
+    actualizarCarrito()
 
-    // console.log(carritoProductos)
-
-
+  
     botonCompra.forEach((boton, index) => {
         boton.addEventListener('click', () => {
             const productoSeleccionado = producto[index];
             const imagenProducto = productoSeleccionado.querySelector('img').src;
-            console.log(imagenProducto)
+            
             const precioProducto = parseInt(productoSeleccionado.querySelector('h5').textContent);
             const descProducto = productoSeleccionado.querySelector('.card-text').textContent;
 
@@ -34,38 +33,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
             total+=precioProducto
             
-            actualizarCarrito(carritoProductos, total)
-            subirLocal(carritoProductos, total)
+            actualizarCarrito()
+            subirLocal(carritoProductos,total)
             
         });
     });
 
         
-            function actualizarCarrito() {
-                carrito.innerHTML = '';
+    function actualizarCarrito() {
+        carrito.innerHTML = ''
+    
+        for (const producto in carritoProductos) {
+            const infoProducto = carritoProductos[producto];
+            const elementoCarrito = document.createElement('div');
+    
+            elementoCarrito.innerHTML = `
+                <img src="${infoProducto.imagen}" class="foticosuwu">
+                <p class="valor">$${infoProducto.precio}</p>
+                <p>${producto}</p>
+                <p>Cantidad: <b>${infoProducto.cantidad}</b></p>
+            `;
+            elementoCarrito.classList.add("productoEnCarro")
 
-                for (const producto in carritoProductos) {
-                    // console.log(carritoProductos)
-                    const infoProducto = carritoProductos[producto];
-                    const elementoCarrito = document.createElement('div');
-                    
-                 console.log(infoProducto)
-                    elementoCarrito.innerHTML = `
-                        <img src="${infoProducto.imagen}" class="foticosuwu">
-                        <p class="valor">${infoProducto.precio}</p>
-                        <p>${producto}</p>
-                        <p>Cantidad: <b>${infoProducto.cantidad}</b></p>
-                    `;
-                    elementoCarrito.classList.add("productoEnCarro");
+            const vaciarCarrito=document.createElement('button')
+            vaciarCarrito.classList.add("boton-eliminar")
+            vaciarCarrito.textContent="X"
 
-                    carrito.appendChild(elementoCarrito);
-                    
-                    
-                }
-              
+
+
+
+        carrito.appendChild(vaciarCarrito)
+    vaciarCarrito.addEventListener('click',()=>{
+
+        if (carritoProductos.hasOwnProperty(producto)) {
+            carritoProductos[producto].cantidad--; 
+            if (carritoProductos[producto].cantidad === 0) {
+                delete carritoProductos[producto]; 
+                carrito.removeChild(elementoCarrito)
+                vaciarCarrito.style.display="none"
+            }
+            subirLocal(carritoProductos);
+            actualizarCarrito();
+        }
+
+
      
+
+
+
+    })
+            carrito.appendChild(elementoCarrito)
+        }
+                
+           
+
+
+                const vaciarCarritoTotal=document.createElement('button')
+                vaciarCarritoTotal.textContent="Vaciar el coso"
+                vaciarCarritoTotal.classList.add('vaciarCarro')
+                carrito.appendChild(vaciarCarritoTotal)
+
+                vaciarCarritoTotal.addEventListener('click', ()=>{
+                    localStorage.clear()
+                    sessionStorage.clear()
+                   
+                    carrito.innerHTML=""
+                    
+                })
+
                 const totalElemento = document.createElement('div');
-                totalElemento.innerHTML = `<p class="totalProductos">Total: $${total}</p>`;
+                totalElemento.classList.add('allProductsXD')
+                totalElemento.innerHTML = `<p >Total: $${total}</p>`;
                 carrito.appendChild(totalElemento);
             }
             
@@ -77,13 +115,17 @@ document.addEventListener('DOMContentLoaded', () => {
               }
             
 
-    icono.addEventListener('mouseover', () => {
-        carrito.style.display = "block";
-    });
+    icono.addEventListener('click', () => {
+        carrito.style.display = "block"
+    })
 
-    icono.addEventListener('mouseleave', () => {
-        carrito.style.display = "none";
-    });
+    carrito.addEventListener('mouseover',()=>{
+        carrito.style.display="block"
+    })
+
+    carrito.addEventListener('mouseleave',()=>{
+        carrito.style.display="none"
+    })
 
 });
 

@@ -156,8 +156,9 @@ font-weight: 550;
     right: 0%;
     top: 100%;
     width: 500px;
-    height: 500%;
-    border-bottom-left-radius: 10px;
+    height: 700%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     box-shadow: 1px 1px 2px 0.5px rgb(145, 145, 145);
     
 }
@@ -172,6 +173,7 @@ font-weight: 550;
     margin: 5px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    z-index: 999;
 }
 
 .valor{
@@ -182,7 +184,7 @@ font-weight: 550;
 
 .foticosuwu{
     width: 80px;
-    /* height: 50px; */
+   
 }
 
 .totalProductos{
@@ -190,4 +192,57 @@ font-weight: 550;
     font-size: 25px;
     margin: 10px;
     font-weight: bold;
+}
+.allProductsXD{
+    z-index: 10;
+    position: absolute;
+    bottom: 0px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+    border-style:groove;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0px 10px 100px 2px rgb(206, 255, 177) inset;
+}
+
+.vaciarCarro{
+    position: absolute;
+    left: 0%;
+    margin-top: 490px;
+    background-color: #ffee59;
+    width: 100%;
+    border-style: none;
+    height: 50px;
+    font-size: 20px;
+    box-shadow: 10px 10px 10px 10px rgb(177, 177, 177);
+}
+
+.vaciarCarro:hover{
+    transition: 0.8s;
+    margin-top: 480px;
+    background-color: #ff3333;
+    height: 60px;
+    font-weight:500
+}
+
+
+.boton-eliminar{
+    z-index: 999;
+    position: absolute;
+    background-color: #ff3333;
+    right: 0%;
+    border-style: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    font-size: larger;
+    font-weight: bold;
+    margin: 3px;
+}
+
+.boton-eliminar:hover{
+    transition: 0.8s;
+    background-color: #bd2727;
 }

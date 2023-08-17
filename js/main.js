@@ -1,97 +1,124 @@
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
 
-    let icono=document.getElementById('btcarrito')
-    let carrito=document.getElementById('carrito')
-    let botonCompra=document.querySelectorAll('#comprar')
-    let producto=document.querySelectorAll('.card')
+    let icono = document.getElementById('btcarrito');
+    let carrito = document.getElementById('carrito');
+    let botonCompra = document.querySelectorAll('#comprar');
+    let producto = document.querySelectorAll('.card');
+    let contenidotal=document.getElementById('carritoHover')
     
+    let total = 0;
+    let carritoProductos = {};
+    carritoProductos = JSON.parse(localStorage.getItem("producto")) || {}
+    total = JSON.parse(localStorage.getItem("total")) || 0
 
+    // console.log(carritoProductos)
+actualizarCarrito
 
-let total=0
-let cantidad=0
     botonCompra.forEach((boton, index) => {
-        
         boton.addEventListener('click', () => {
             const productoSeleccionado = producto[index];
             const imagenProducto = productoSeleccionado.querySelector('img').src;
+            
             const precioProducto = parseInt(productoSeleccionado.querySelector('h5').textContent);
             const descProducto = productoSeleccionado.querySelector('.card-text').textContent;
-            cantidad++
-      
+
+            if (carritoProductos.hasOwnProperty(descProducto)) {
+                carritoProductos[descProducto].cantidad++;
+            } else {
+                carritoProductos[descProducto] = {
+                    imagen: imagenProducto,
+                    precio: precioProducto,
+                    cantidad: 1,
+                };  
+            }
+
             total+=precioProducto
-actualizarCarrito()
-
-            const elementoCarrito=document.createElement('div')
-            elementoCarrito.innerHTML=`
-            <img class="foticosuwu" src="${imagenProducto}">
-            <p class="valor">${precioProducto}</p>
-                            <p>${descProducto}</p> <br>
-                            <p>Cantidad: ${cantidad}</p>
-                            `
-
-            elementoCarrito.classList.add("productoEnCarro")
-            carrito.appendChild(elementoCarrito)
-
-
-
-        });
             
+            
+            subirLocal(carritoProductos,total)
+            
+        });
     });
 
-
+        
     function actualizarCarrito() {
-        carrito.innerHTML = ''; // Borra el contenido anterior del carrito
-    
+   
+
+
+
         for (const producto in carritoProductos) {
-            const cantidad = carritoProductos[producto];
-            // Obtén el precio del producto desde el objeto o tu estructura HTML
-            // Agrega un elemento al carrito con la descripción, cantidad y precio
+            // const infoProducto = carritoProductos[producto];
+            // console.log(infoProducto)
+            const elementoCarrito = document.createElement('div');
+    let tal=Object.values(carritoProductos, producto)
+    console.log(tal)
+            // elementoCarrito.innerHTML = `
+            //     <img src="${infoProducto.imagen}" class="foticosuwu">
+            //     <p class="valor">$${infoProducto.precio}</p>
+            //     <p>${producto}</p>
+            //     <p>Cantidad: <b>${infoProducto.cantidad}</b></p>
+            // `;
+            elementoCarrito.classList.add("productoEnCarro")
+    
+            carrito.appendChild(elementoCarrito)
         }
-    
-        // Agrega el elemento para mostrar el total al final del carrito
-        const totalElemento = document.createElement('div');
-        totalElemento.innerHTML = `<p>Total: $${total}</p>`;
-        carrito.appendChild(totalElemento);
-    }
+                
+           
 
 
+                const vaciarCarritoTotal=document.createElement('button')
+                vaciarCarritoTotal.textContent="Vaciar el coso"
+                vaciarCarritoTotal.classList.add('vaciarCarro')
+                carrito.appendChild(vaciarCarritoTotal)
 
+                vaciarCarritoTotal.addEventListener('click', ()=>{
+                    localStorage.clear()
+                    sessionStorage.clear()
+                   
+                    carrito.innerHTML=""
+                    
+                })
 
-
-
-    // producto.forEach((element)=>{
-    //     const imagenProducto=element.querySelector('img')
-    //     console.log(imagenProducto)
-    //     const precioProducto=element.querySelector('h5')
-    //     console.log(precioProducto)
-    //     const descProducto=element.querySelector('.card-text')
-    //     console.log(descProducto)
-
-    // })
-
-
-    // botonCompra.forEach((element)=>{
-    //     element.addEventListener('click',()=>{
-    //         console.log(element)
+                const totalElemento = document.createElement('div');
+                totalElemento.classList.add('allProductsXD')
+                totalElemento.innerHTML = `<p >Total: $${total}</p>`;
+                carrito.appendChild(totalElemento);
+            }
+            
+            function subirLocal (carritoProductos){
         
-        
-    //     })
-        
-        
-    // })
-    
+                localStorage.setItem("producto", JSON.stringify(carritoProductos))
+                localStorage.setItem("total",JSON.stringify(total))
 
-    
-    let productoscarrito=[]
-    
-    icono.addEventListener('mouseover', ()=>{
+              }
+            
+
+    icono.addEventListener('click', () => {
+        carrito.style.display = "block"
+    })
+
+    carrito.addEventListener('mouseover',()=>{
         carrito.style.display="block"
     })
-    
-    icono.addEventListener('mouseleave', ()=>{
-        carrito.style.display="none"
-    })
-    
 
-})
+
+    function actualizarCantidad(){
+        const vaciarCarrito=document.createElement('button')
+        vaciarCarrito.textContent="X"
+        carrito.appendChild(vaciarCarrito)
+
+    vaciarCarrito.addEventListener('click',()=>{
+   
+        carritoProductos.cantidad--
+        
+        return carritoProductos.cantidad
+
+       
+            
+    })
+
+
+    
+    }
+});
 
