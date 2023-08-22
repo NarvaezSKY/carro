@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-        
-    function actualizarCarrito() {
+        function actualizarCarrito() {
         carrito.innerHTML = ''
     
         for (const producto in carritoProductos) {
@@ -59,9 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
             vaciarCarrito.classList.add("boton-eliminar")
             vaciarCarrito.textContent="X"
 
-
-
-
         carrito.appendChild(vaciarCarrito)
         
     const vaciarCarritoTotal=document.createElement('button')
@@ -76,15 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let borrarProductos=document.querySelectorAll('.productoEnCarro')
         console.log(borrarProductos)
         borrarProductos.forEach((element)=>{
-            // console.log(carritoProductos)
             vaciarCarrito.style.display="none"
             carritoProductos={}
             actualizarCarrito()
         })
-        
-        
-
-                
+                  
     })
         vaciarCarrito.addEventListener('click',()=>{
 
@@ -98,37 +90,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             actualizarCarrito();
             subirLocal(carritoProductos);
-            
-            
+                      
         }
-
-
-     
-
-
-
     })
-            carrito.appendChild(elementoCarrito)
-        }
-                
-           
-
-
-
+        carrito.appendChild(elementoCarrito)
+    }
                 const totalElemento = document.createElement('div');
                 totalElemento.classList.add('allProductsXD')
                 totalElemento.innerHTML = `<p >Total: $${total}</p>`;
                 carrito.appendChild(totalElemento);
 }
             
-function subirLocal (carritoProductos){
+    function subirLocal (carritoProductos){
         
-                localStorage.setItem("producto", JSON.stringify(carritoProductos))
-                localStorage.setItem("total",JSON.stringify(total))
+        localStorage.setItem("producto", JSON.stringify(carritoProductos))
+        localStorage.setItem("total",JSON.stringify(total))
 
-              }
+    }
             
-
     icono.addEventListener('click', () => {
         carrito.style.display = "block"
     })
