@@ -65,17 +65,21 @@ document.addEventListener('DOMContentLoaded', () => {
         carrito.appendChild(vaciarCarrito)
         
     const vaciarCarritoTotal=document.createElement('button')
-    vaciarCarritoTotal.textContent="Cada click aqui es un preuano muerto"
+    vaciarCarritoTotal.textContent="Vaciar carrito"
     vaciarCarritoTotal.classList.add('vaciarCarro')
     carrito.appendChild(vaciarCarritoTotal)
 
     vaciarCarritoTotal.addEventListener('click', ()=>{
+        
         localStorage.clear()
+        total=0
         let borrarProductos=document.querySelectorAll('.productoEnCarro')
         console.log(borrarProductos)
         borrarProductos.forEach((element)=>{
-            console.log(carritoProductos)
+            // console.log(carritoProductos)
             vaciarCarrito.style.display="none"
+            carritoProductos={}
+            actualizarCarrito()
         })
         
         
@@ -85,7 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
         vaciarCarrito.addEventListener('click',()=>{
 
         if (carritoProductos.hasOwnProperty(producto)) {
-            carritoProductos[producto].cantidad--; 
+            carritoProductos[producto].cantidad--;
+            total-=carritoProductos[producto].precio 
             if (carritoProductos[producto].cantidad === 0) {
                 delete carritoProductos[producto]; 
                 carrito.removeChild(elementoCarrito)
@@ -140,4 +145,4 @@ function subirLocal (carritoProductos){
 
 let n = document.querySelector("#elpapu");
 
-n.textContent = "koala uwu  ";
+// n.textContent = "koala uwu  ";

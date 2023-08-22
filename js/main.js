@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     total = JSON.parse(localStorage.getItem("total")) || 0
 
     // console.log(carritoProductos)
-actualizarCarrito
+
 
     botonCompra.forEach((boton, index) => {
         boton.addEventListener('click', () => {
