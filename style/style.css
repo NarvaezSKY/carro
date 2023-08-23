@@ -90,7 +90,9 @@
     color: rgb(114, 113, 113);
 }
 
-
+.card{
+    margin-bottom: 15px;
+}
 
 .contenedor-cards{
     margin-top: 100px;
@@ -156,12 +158,16 @@ font-weight: 550;
     right: 0%;
     top: 100%;
     width: 500px;
-    height: 800%;
+    height: auto;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: 1px 1px 2px 0.5px rgb(145, 145, 145);
+    min-height: 400px;
     
 }
+
+
+
 #btcarrito:hover #carrito{
     color: #ffee59;
     display: none;
@@ -196,7 +202,7 @@ font-weight: 550;
 .allProductsXD{
     z-index: 10;
     position: absolute;
-    bottom: 0px;
+    bottom:-143px;
     font-size: 25px;
     font-weight: bold;
     width: 100%;
@@ -205,6 +211,7 @@ font-weight: 550;
     border-style:groove;
     border-bottom-left-radius: 5px;
     box-shadow: 0px 10px 100px 2px rgb(206, 255, 177) inset;
+    background-color: white;
 }
 
 .tal{
@@ -212,29 +219,29 @@ font-weight: 550;
     width: 100%;
     background-color: #02A846;
     z-index: 999;
-    height: 100%;
+    height: 120%;
+    
 }
 .INVISIBLE{
     display: none;
 }
 .vaciarCarro{
-    
-    top: 21%;
+    top: 100%;
     position: absolute;
-    /* position: fixed; */
     right: 0%;
-    margin-top: 497px;
     background-color: #ffee59;
+    right: 0%;
     width: 100%;
     border-style: none;
-    height: 50px;
+    height: 60px;
     font-size: 20px;
     box-shadow: 10px 10px 10px 5px rgb(177, 177, 177);
+    
 }
 
 .vaciarCarro:hover{
     transition: 0.8s;
-    margin-top: 496px;
+    /* margin-top: auto; */
     background-color: #ff3333;
     height: 60px;
     font-weight:500
